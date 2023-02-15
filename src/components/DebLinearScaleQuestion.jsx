@@ -15,13 +15,16 @@ export default function DebLinearScaleQuestion({title, description, obligatory, 
 
   const generateButtons = (start, end) => {
     if(!start || !end) return null;
+    const num = end - start;
+    const dir = num > 0? 1 : -1;
     const buttons = [];
-    for (let i = start; i <= end; i++) {
+    for (let i = 0; i <= Math.abs(num); i++) {
+      const buttonNumber = start + i*dir;
       buttons.push(
         <Button
-          onClick={()=> handleClick(i)}
-          key={i}
-          variant={i === selected? "contained": "outlined"}
+          onClick={()=> handleClick(buttonNumber)}
+          key={buttonNumber}
+          variant={buttonNumber === selected? "contained": "outlined"}
           sx={{
             width: "4rem",
             height: "4rem",
@@ -30,7 +33,7 @@ export default function DebLinearScaleQuestion({title, description, obligatory, 
             minWidth: "0",
             minHeight: "0",
           }}>
-          {i}
+          {buttonNumber}
         </Button>
       );
     }
