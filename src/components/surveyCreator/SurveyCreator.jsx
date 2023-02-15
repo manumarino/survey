@@ -9,17 +9,14 @@ function SurveyCreator() {
 
     return (        
         <div className='FondoEncuesta'
-            style={{ backgroundImage: `url(${require('../../img/fondo.jpg')})`, 
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            width: '100vw',
-            height: '100vh', 
-            padding: "2rem",
-            display: "flex",
-            justifyContent: "flex-start",
-            flexDirection: "column",
-            alignItems: "center"
+            style={{ 
+                backgroundImage: `url(${require('../../img/fondo.jpg')})`, 
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+            backgroundColor:"#bacada",
+            minHeight: '100%', 
+            paddingTop: "2rem",
         }}
         >
             <Contenedor/>
