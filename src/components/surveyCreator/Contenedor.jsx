@@ -47,7 +47,6 @@ function Contenedor() {
             </Card>
             <DebLinearScaleQuestion
               name="question1"
-              num={10}
               title={"Califique el nivel de atención:"}
               description={"Tenga en cuenta todo el servicio recibido en general. Marque del 1 al 10 siendo 1 \"muy malo\" y 10 \"muy bueno\"."}
               startText={"Muy mala"}
@@ -58,7 +57,6 @@ function Contenedor() {
               />
             <DebLinearScaleQuestion
               name="question2"
-              num={5}
               title={"Califique la rapidez de respuesta:"}
               startValue={1}
               endValue={5}
