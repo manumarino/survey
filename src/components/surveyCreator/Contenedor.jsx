@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import image from '../../img/deblogo.png';
 import { padding } from '@mui/system';
-import DebTextInput from './DebTextInput';
+import DebTextInput from './DebSurveyTextInput';
 import { Box } from '@mui/material';
 
 function Contenedor() {

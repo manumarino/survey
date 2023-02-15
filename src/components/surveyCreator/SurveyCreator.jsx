@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import IMAGES from './images';
 import Contenedor from './Contenedor';
+import Contenedor2 from './Contenedor2';
 
 
 function SurveyCreator() {
@@ -15,14 +16,14 @@ function SurveyCreator() {
             backgroundRepeat: 'no-repeat',
             width: '100vw',
             height: '100vh', 
-            padding: "2rem",
             display: "flex",
             justifyContent: "flex-start",
             flexDirection: "column",
             alignItems: "center"
         }}
         >
-            <Contenedor/>
+            <Box sx={{  height: "2rem" }} />
+            <Contenedor2/>
 
         </div>
         
