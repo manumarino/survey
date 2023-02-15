@@ -1,7 +1,7 @@
-import { Card, CardContent, Typography, Tooltip } from "@mui/material";
+import React, { useState } from "react";
+import { Card, CardContent, Typography, Tooltip, useMediaQuery, useTheme } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { useField } from "formik";
-import React, { useState } from "react";
 import { CircularButton } from "./styledComponents/CircularButton";
 
 export default function DebLinearScaleQuestion({
@@ -16,7 +16,8 @@ export default function DebLinearScaleQuestion({
 }) {
   const [selected, setSelected] = useState();
   const [field, meta, helpers] = useField(props);
-
+  const theme = useTheme();
+  const sm = useMediaQuery(theme.breakpoints.down('sm'));
   const generateButtons = (start, end) => {
     if (!start || !end) return null;
     const num = end - start;
@@ -29,7 +30,7 @@ export default function DebLinearScaleQuestion({
           onClick={() => handleClick(buttonNumber)}
           key={buttonNumber}
           variant={buttonNumber === selected ? "contained" : "outlined"}
-          sx={{ fontSize: "2rem" }}>
+          sx={{ fontSize: sm ? "1rem": "2rem" }}>
           {buttonNumber}
         </CircularButton>
       );
@@ -70,7 +71,7 @@ export default function DebLinearScaleQuestion({
             mt="0.5rem"
             direction={"row"}
             justifyContent={"space-between"}
-            spacing={1}>
+            spacing={sm ? 0.5 : 1}>
             {generateButtons(startValue, endValue)}
           </Stack>
         </Box>
