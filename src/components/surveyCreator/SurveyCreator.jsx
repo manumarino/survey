@@ -15,7 +15,7 @@ function SurveyCreator() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '100vw',
-            height: '100vh', 
+            height: 'fit-content', 
             display: "flex",
             justifyContent: "flex-start",
             flexDirection: "column",
@@ -24,6 +24,7 @@ function SurveyCreator() {
         >
             <Box sx={{  height: "2rem" }} />
             <Contenedor2/>
+            <Box sx={{  height: "2rem" }} />
 
         </div>
         

@@ -1,81 +1,63 @@
-import { Box, Button, Card, CardContent } from '@mui/material';
+import { Box, Button, Card, CardContent, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { Formik, Form, Field } from 'formik'
 import React from 'react'
 import * as Yup from 'yup';
-import DebSurveyTextInput from './DebSurveyTextInput';
+import DebSurveyLongQuestion from './DebSurveyLongQuestion';
+import DebSurveyShortQuestion from './DebSurveyShortQuestion';
+import { debSurveyValidationSchema } from './debSurveyValidationSchema';
 
 
 function FormikForm() {
-
-    const formikProps = {
-        initialValues: { firstname: "", color: "", lastname: "" },
-        validationSchema: Yup.object({
-            firstname: Yup.string().required("sory pero no"),
-            lastname: Yup.string().required("sory pero no"),
-        }),
-        onSubmit: values => {
-            console.log(values)
-        }
-        
-    }
-  
-
-    const TextInputCustomField = ({
-        field,
-        form: { touched, errors },
-        ...props
-    }) => (
-        <>
-        <Card variant="outlined">
-            <CardContent>
-            <label htmlFor={field.name} variant="h3">{props.labelName}</label>
-            <input 
-            type="text"
-            className="form-control"
-            placeholder={props.placeholder}
-            {...field}
-            />
-            {errors[field.name] && touched[field.name] ?
-            <span>(errors[field.name])</span>
-            :null
-        }
-            </CardContent>
-        </Card>
-        </>
-    )
+    
 
   return (
-    <Formik {...formikProps} >
-       { formik => (
+    <Formik initialValues={{
+        question1: "",
+        question2: "",
+        question3: "",
+        question4: ""
+    }}
+    onSubmit={(val) => console.log(val)}
+    
+    >
         <Form>
-            <DebSurveyTextInput
-                label="Ingrese su nombre"
-                placeholder="Nombre"
-                name="firstname"
+            <Stack spacing={2} sx={{display:"flex", alignItems: "center"}} >
+            <DebSurveyShortQuestion
+                text="Nombre"
+                description="Ingrese su nombre"
+                name="question2"
+                obligatory
             />
-            <Field
-                name="lastname"
-                component={TextInputCustomField}
-                placeholder="Apellido"
-                labelName="Ingresa tu apellido"
+            <DebSurveyLongQuestion
+                text="Razón de la insatisfacción"
+                description="Explique brevemente lo sucedido durante su atención"
+                name="question3"
             />
-            <Field
-                name="color"
-                component={TextInputCustomField}
-                placeholder="Color"
-                labelName="Ingresa el color"
+            <DebSurveyLongQuestion
+                text="Algo mas chabon?"
+                description="Explique brevemente por qué la carita de culo"
+                name="question1"
+                obligatory
+            />            
+            <DebSurveyShortQuestion
+                text="Apellido"
+                description="Ingrese su apellido"
+                name="question4"
+                obligatory
             />
-            <Box sx={{display: "flex", alignItems: "center", justifyContent: "flex-end", paddingRight: "2rem"}}>
-                <Button            
+            
+            <Box>
+            <Button                 
+                sx={{ margin: "1rem 1rem 2rem 1rem"}}
                 variant="contained"
-                type="submit"
-                color="inherit">
+                type="submit">
                 Enviar encuesta              
-                </Button>
-            </Box>          
-                
+            </Button>
+            </Box>
+            
+            </Stack>         
         </Form>
-       )}
+       
     </Formik>
   )
 }

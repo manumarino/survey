@@ -7,8 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import image from '../../img/deblogo.png';
 import { padding } from '@mui/system';
-import DebSurveyTextInput from './DebSurveyTextInput';
-import { Box, Container, Grid, Paper } from '@mui/material';
+import DebSurveyTextInput from './DebSurveyShortQuestion';
+import { Box, Container, Divider, Grid, Paper, useMediaQuery, useTheme } from '@mui/material';
 import styled from '@emotion/styled';
 import FormikForm from './FormikForm';
 
@@ -20,9 +20,13 @@ const HeaderItem = styled(Paper)(() => ({
   }));
 
 function Contenedor2() {
+    const theme = useTheme();
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const lg = useMediaQuery(theme.breakpoints.down('lg'));
+
   return (
-    <Container maxWidth="lg">
-        <Box sx={{ bgcolor: 'white', height: '90vh', borderRadius: '0.7rem' }} >
+    <Container maxWidth="lg" disableGutters={sm}>
+        <Box sx={{ bgcolor: 'white', height: 'fit-content', borderRadius: '0.7rem' }} >
         <Box sx={{  height: "1rem" }} />
                 <Grid item xs={12}>                
                     <HeaderItem
@@ -38,7 +42,7 @@ function Contenedor2() {
                     </Typography>
                     </HeaderItem>
                 </Grid>
-                
+                <Divider/>
         <FormikForm/>
         </Box>
         
