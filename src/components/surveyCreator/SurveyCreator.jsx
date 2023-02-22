@@ -10,6 +10,7 @@ function SurveyCreator() {
 
     return (        
         <div className='FondoEncuesta'
+
             style={{ backgroundImage: `url(${require('../../img/fondo.jpg')})`, 
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -20,6 +21,7 @@ function SurveyCreator() {
             justifyContent: "flex-start",
             flexDirection: "column",
             alignItems: "center"
+
         }}
         >
             <Box sx={{  height: "2rem" }} />
