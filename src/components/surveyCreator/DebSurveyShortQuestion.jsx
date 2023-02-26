@@ -1,24 +1,14 @@
 import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
   TextField,
-  InputLabel,
-  Select,
-  MenuItem,
-  OutlinedInput,
-  ListItemText,
-  FormHelperText,
   Tooltip,
   Typography,
   CardContent,
-  Card,
   useMediaQuery,
   useTheme
 } from "@mui/material";
-import { useField, useFormikContext } from "formik";
-import React, { useEffect } from "react";
+import { DebQuestionCard } from "../styledComponents/DebQuestionCard";
+import { useField } from "formik";
+import React from "react";
 
 export default function DebSurveyShortQuestion({text, description, obligatory, ...props}) {
   const [field, meta, helpers] = useField(props);
@@ -26,7 +16,7 @@ export default function DebSurveyShortQuestion({text, description, obligatory, .
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
 return (
-  <Card sx={{width: "70vw", backgroundColor: "#dedede", margin: "1rem 0 !important"}}>
+  <DebQuestionCard>
     <CardContent>
       <Typography variant="h5" sx={{marginBottom: "1rem"}} >
         {text}
@@ -50,7 +40,7 @@ return (
         inputProps= {{maxLength:255}}
       />
     </CardContent>
-  </Card>
+  </DebQuestionCard>
 );
 }
 

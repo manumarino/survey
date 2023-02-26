@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import image from '../../img/deblogo.png';
 import { padding } from '@mui/system';
 import DebSurveyTextInput from './DebSurveyShortQuestion';
-import { Box, Container, Divider, Grid, Paper, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Container, Divider, Grid, Paper, Stack, useMediaQuery, useTheme } from '@mui/material';
 import styled from '@emotion/styled';
 import FormikForm from './FormikForm';
 
@@ -19,29 +19,28 @@ const HeaderItem = styled(Paper)(() => ({
       
   }));
 
-function Contenedor2() {
+function Contenedor2({logo, title}) {
     const theme = useTheme();
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const lg = useMediaQuery(theme.breakpoints.down('lg'));
 
+
   return (
-    <Container maxWidth="lg" disableGutters={sm}>
+    <Container disableGutters={sm}>
         <Box sx={{ bgcolor: 'white', height: 'fit-content', borderRadius: '0.7rem' }} >
         <Box sx={{  height: "1rem" }} />
-                <Grid item xs={12}>                
-                    <HeaderItem
-                    sx={{
+        <Stack direction={lg ? "column": "row"} sx={{
                         display: "flex",
                         justifyContent: "space-around",
                         alignItems: "center"
-                        }}  
-                    >
+                        }} >
+               
                     <img src={image} />
                     <Typography gutterBottom variant="h4" component="div" textAlign="center">
-                      Encuesta de evaluación de servicio
+                      {title}
                     </Typography>
-                    </HeaderItem>
-                </Grid>
+                
+              </Stack>
                 <Divider/>
         <FormikForm/>
         </Box>

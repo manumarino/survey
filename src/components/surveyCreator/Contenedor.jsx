@@ -6,11 +6,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import image from "../../img/deblogo.png";
-import { padding } from "@mui/system";
-import DebTextInput from "./DebTextInput";
 import { Box, Container, Stack, useMediaQuery, useTheme } from "@mui/material";
 import DebLinearScaleQuestion from "../DebLinearScaleQuestion";
-import DebTextInput from './DebSurveyShortQuestion';
+import DebSurveyShortQuestion from './DebSurveyShortQuestion';
 import { Form, Formik } from "formik";
 
 

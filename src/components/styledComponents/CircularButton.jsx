@@ -9,5 +9,5 @@ export const CircularButton = styled(Button)(({ theme }) => ({
   minHeight: "unset",
   maxWidth: "unset",
   maxHeight: "unset",
-  padding:0,
+  padding:0
 }));

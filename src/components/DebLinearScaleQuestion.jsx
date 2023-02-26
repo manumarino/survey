@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Card, CardContent, Typography, Tooltip, useMediaQuery, useTheme } from "@mui/material";
+import { CardContent, Typography, Tooltip, useMediaQuery, useTheme } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { useField } from "formik";
 import { CircularButton } from "./styledComponents/CircularButton";
+import { DebQuestionCard } from "./styledComponents/DebQuestionCard";
 
 export default function DebLinearScaleQuestion({
   title,
@@ -43,9 +44,9 @@ export default function DebLinearScaleQuestion({
     helpers.setValue(val);
   };
   return (
-    <Card>
+    <DebQuestionCard>
       <CardContent>
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{marginBottom: "1rem"}}>
           {title}
           {obligatory && (
             <Tooltip
@@ -57,9 +58,17 @@ export default function DebLinearScaleQuestion({
           )}
         </Typography>
         <Typography>{description}</Typography>
-        <Box mt="1rem">
+        <Box mt="1rem">          
+          <Stack
+            margin={"0 2rem 0 2rem"}
+            direction={"row"}
+            justifyContent={"space-between"}
+            spacing={sm ? 0.5 : 1}>
+            {generateButtons(startValue, endValue)}
+          </Stack>
           {(startText || endText) && (
             <Stack
+              margin={"0.5rem 1.5rem 0 1.5rem"}
               direction={"row"}
               justifyContent={"space-between"}
               spacing={2}>
@@ -67,15 +76,8 @@ export default function DebLinearScaleQuestion({
               <Typography>{endText}</Typography>
             </Stack>
           )}
-          <Stack
-            mt="0.5rem"
-            direction={"row"}
-            justifyContent={"space-between"}
-            spacing={sm ? 0.5 : 1}>
-            {generateButtons(startValue, endValue)}
-          </Stack>
         </Box>
       </CardContent>
-    </Card>
+    </DebQuestionCard>
   );
 }

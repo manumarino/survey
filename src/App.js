@@ -1,10 +1,12 @@
-import SurveyOne from './components/surveyDisplay/surveyOne.js'
+
 import './App.css';
+import SurveyCreator from './components/surveyCreator/SurveyCreator.jsx';
+
 
 function App() {
   return (
     <>
-     <SurveyOne />
+     <SurveyCreator />
     </>
   );
 }
